@@ -31,19 +31,27 @@ class SortSearchSolutions:
         elif SA[h] < n:
             return self.binarySearch(SA[h+1:],n)
 
-#    def insertSort(self,A):
-#        N = len(A)
-#        for i in range(1, N):
-#            for j in range(0, i-1):
-#                if A[i] < A[j]:
-#                    A.insert(
+    def insertSort(self,A):
+        for i in range(len(A)-1):
+            j = i+1
+            while j>0 and A[j]<A[j-1]:
+                A[j],A[j-1] = A[j-1],A[j]
+                j -= 1
+    def mergeSort(self,A):
+algSort = SortSearchSolutions()
 
 A=[2,7,9,3,98,1]
-algSort = SortSearchSolutions()
 algSort.bubbleSort(A)
-print(A)
+print("bubbleSort:",A)
 
+
+A=[2,7,9,3,98,1]
 algSort.selectSort(A)
-print(A)
+print("selectSort:", A)
+
+A=[2,7,9,3,98,1]
+algSort.insertSort(A)
+print("selectSort:", A)
+
 
 print(algSort.binarySearch(A,98))
