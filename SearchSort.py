@@ -31,12 +31,14 @@ class SortSearchSolutions:
         elif SA[h] < n:
             return self.binarySearch(SA[h+1:],n)
 
-#    def insertSort(self,A):
-#        N = len(A)
-#        for i in range(1, N):
-#            for j in range(0, i-1):
-#                if A[i] < A[j]:
-#                    A.insert(
+    def insertSort(self,A):
+        N = len(A)
+
+        for i in range(1, N):
+            j = i
+            val = A[i]
+            while A[j] < val and j >= 0:
+                A[j] = A[j-1]
 
 A=[2,7,9,3,98,1]
 algSort = SortSearchSolutions()
