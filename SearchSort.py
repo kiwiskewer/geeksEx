@@ -38,24 +38,27 @@ class SortSearchSolutions:
                 A[j],A[j-1] = A[j-1],A[j]
                 j -= 1
 
-    def mergeSort(self,A,s,l):
-
-        if l == 0:
-            return []
-        if l == 1:
+    def mergeSort(self,A,s,e):
+        if e-s == 0:
             return [A[s]]
-        l0 = (l - s + 1)//2
-        p0 = (l + s - 1)//2
 
-        mergeSort(A,s,l0)
-        mergeSort(A,p0,l-l0)
-        s_arr = merge(A,s,l0,l)
+        left = self.mergeSort(A,s,(s+e)//2)
+        right = self.mergeSort(A,(s+e)//2+1,e)
+        s_arr = self.merge(left, right)
         return s_arr
 
-    def merge(self,A,s,l0,l):
-        while i+j in range(l):
-            if
-            tempA
+    def merge(self,left,right):
+        arr = []
+        while left and right:
+            if left[0] < right[0]:
+                arr.append(left.pop(0))
+            else:
+                arr.append(right.pop(0))
+        while left:
+            arr.append(left.pop(0))
+        while right:
+            arr.append(right.pop(0))
+        return arr
 
 
 algSort = SortSearchSolutions()
@@ -74,8 +77,8 @@ algSort.insertSort(A)
 print("insertSort:", A)
 
 A=[2,7,9,3,98,1]
-algSort.mergeSort(A)
-print("mergeSort:", A)
+B = algSort.mergeSort(A,0,len(A)-1)
+print("mergeSort:", B)
 
 
 print(algSort.binarySearch(A,98))
