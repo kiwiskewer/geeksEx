@@ -32,20 +32,53 @@ class SortSearchSolutions:
             return self.binarySearch(SA[h+1:],n)
 
     def insertSort(self,A):
-        N = len(A)
+        for i in range(len(A)-1):
+            j = i+1
+            while j>0 and A[j]<A[j-1]:
+                A[j],A[j-1] = A[j-1],A[j]
+                j -= 1
 
-        for i in range(1, N):
-            j = i
-            val = A[i]
-            while A[j] < val and j >= 0:
-                A[j] = A[j-1]
+    def mergeSort(self,A,s,e):
+        if e-s == 0:
+            return [A[s]]
+
+        left = self.mergeSort(A,s,(s+e)//2)
+        right = self.mergeSort(A,(s+e)//2+1,e)
+        s_arr = self.merge(left, right)
+        return s_arr
+
+    def merge(self,left,right):
+        arr = []
+        while left and right:
+            if left[0] < right[0]:
+                arr.append(left.pop(0))
+            else:
+                arr.append(right.pop(0))
+        while left:
+            arr.append(left.pop(0))
+        while right:
+            arr.append(right.pop(0))
+        return arr
+
+
+algSort = SortSearchSolutions()
 
 A=[2,7,9,3,98,1]
-algSort = SortSearchSolutions()
 algSort.bubbleSort(A)
-print(A)
+print("bubbleSort:",A)
 
+
+A=[2,7,9,3,98,1]
 algSort.selectSort(A)
-print(A)
+print("selectSort:", A)
+
+A=[2,7,9,3,98,1]
+algSort.insertSort(A)
+print("insertSort:", A)
+
+A=[2,7,9,3,98,1]
+B = algSort.mergeSort(A,0,len(A)-1)
+print("mergeSort:", B)
+
 
 print(algSort.binarySearch(A,98))
