@@ -38,7 +38,7 @@ def isInterleaving(s1,s2,s3):
                 j += 1
                 start = 0
                 end = 0
-            #print(i,j,start,end)
+            print(i,j,start,end)
         j = 0
         if end < last_start or start>last_end:
             return False
@@ -52,10 +52,10 @@ def isInterleaving(s1,s2,s3):
 
 
 
-str1 = "bbbbbabbbbabaababaaaabbababbaaabbabbaaabaaaaababbbababbbbbabbbbababbabaabababbbaabababababbbaaababaa"
-str2 = "babaaaabbababbbabbbbaabaabbaabbbbaabaaabaababaaaabaaabbaaabaaaabaabaabbbbbbbbbbbabaaabbababbabbabaab"
-str3 = "babbbabbbaaabbababbbbababaabbabaabaaabbbbabbbaaabbbaaaaabbbbaabbaaabababbaaaaaabababbababaababbababbbababbbbaaaabaabbabbaaaaabbabbaaaabbbaabaaabaababaababbaaabbbbbabbbbaabbabaabbbbabaaabbababbabbabbab"
-#str1 = 'aa'
-#str2 = 'bb'
-#str3 = 'abab'
+#str1 = "bbbbbabbbbabaababaaaabbababbaaabbabbaaabaaaaababbbababbbbbabbbbababbabaabababbbaabababababbbaaababaa"
+#str2 = "babaaaabbababbbabbbbaabaabbaabbbbaabaaabaababaaaabaaabbaaabaaaabaabaabbbbbbbbbbbabaaabbababbabbabaab"
+#str3 = "babbbabbbaaabbababbbbababaabbabaabaaabbbbabbbaaabbbaaaaabbbbaabbaaabababbaaaaaabababbababaababbababbbababbbbaaaabaabbabbaaaaabbabbaaaabbbaabaaabaababaababbaaabbbbbabbbbaabbabaabbbbabaaabbababbabbabbab"
+str1 = 'aa'
+str2 = 'ab'
+str3 = 'abaa'
 print (isInterleaving(str1,str2,str3))
